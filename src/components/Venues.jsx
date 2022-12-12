@@ -15,11 +15,13 @@ const Venues = ({authenticated}) => {
     const res = await axios.get(`http://localhost:3001/api/venue/${venue_id}`)
     setVenues(res.data)
     // console.log(res.data)
-    let data = res.data
-    let newVenueEvents = data.venue_event
-    let newNewVenueEvents = newVenueEvents.Event
-    console.log(newNewVenueEvents)
-    setEventsVenue(newVenueEvents)
+    let events = res.data.venue_event
+    let reviews = res.data.venue_reviews
+    // let newVenueEvents = data.venue_event
+    // let newNewVenueEvents = newVenueEvents.Event
+    console.log(reviews)
+    setEventsVenue(events)
+    setReviewsVenue(reviews)
     let newEvents = []
     let eventsVenue = []
     let reviewsVenue = []
@@ -70,9 +72,24 @@ const Venues = ({authenticated}) => {
       </div>
       <div>
         <div className='getEvents'>
+          <h1>Events at this Venue:</h1>
         {eventsVenue && (eventsVenue.map(event =>(
           <div className='events list' key={event.id}>
-          <h1 className='venueName name'>EVENT Name: {event.name}</h1>
+          <h3 className='venueName name'>Name: {event.Event.title}</h3>
+          <h3 className='venueName name'>Description: {event.Event.description}</h3>
+          <h3 className='venueName name'>Creator: {event.name}</h3>
+          <br/>
+          </div>
+          )))}
+        </div>
+        <div className='getReviews'>
+          <h1>Reviews for this Venue:</h1>
+        {reviewsVenue && (reviewsVenue.map(review =>(
+          <div className='reviews list' key={review.id}>
+          <h3 className='venueName name'>Title: {review.Review.title}</h3>
+          <h3 className='venueName name'>Review: {review.Review.review}</h3>
+          <h3 className='venueName name'>username: {review.username}</h3>
+          <br/>
           </div>
           )))}
         </div>
