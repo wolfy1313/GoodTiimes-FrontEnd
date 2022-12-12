@@ -5,14 +5,14 @@ import { useParams, useNavigate } from 'react-router-dom'
 
 const Venues = ({authenticated}) => {
   // let navigate = useNavigate()
-  // let {id} = useParams()
+  let {id} = useParams()
   
-  const [venues, setVenues]= useState([])
+  const [venues, setVenues]= useState("")
   const [reviewsVenue, setReviewsVenue] = useState([])
   const [eventsVenue, setEventsVenue] = useState([])
 
   const getVenues = async () => {
-    const res = await axios.get(`http://localhost:3001/api/venue`)
+    const res = await axios.get(`http://localhost:3001/api/venues/${id}`)
     setVenues(res.data)
     let data = res.data
     let venueEvents = []
@@ -66,7 +66,7 @@ const Venues = ({authenticated}) => {
         <div className='getEvents'>
         {eventsVenue && (eventsVenue.map(event =>(
           <div className='events list' key={event.id}>
-          <h1 className='venueName name'>EVENTEVENTEVENT Name: {event.title}</h1>
+          <h1 className='venueName name'>EVENT Name: {event.title}</h1>
           </div>
           )))}
         </div>
