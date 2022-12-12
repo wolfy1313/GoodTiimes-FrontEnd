@@ -50,8 +50,6 @@ const Login = ({toggleAuthenticated, setUser}) => {
       </form>
       
     </div>
-    {/* <h6 className="register-musician-text">If you are a musician and want to add yourself to our database please</h6>
-    <h6><Link to="/register-musician">CLICK HERE TO GET ON THE LIST</Link></h6> */}
   </div>
   )
 }

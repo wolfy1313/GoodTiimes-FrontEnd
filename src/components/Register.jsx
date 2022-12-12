@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-const Register = () => {
+const Register = ({authenticated}) => {
 
   const navigate = useNavigate()
 
@@ -30,7 +30,7 @@ const Register = () => {
       password: formValues.password
     });
     setFormValues(initialFormValues);
-    navigate('/')
+    navigate('/login')
 
   }
 
@@ -88,7 +88,7 @@ const Register = () => {
                 formValues.confirmPassword === formValues.password)
             }
           >
-            Sign In
+            Register
           </button>
         </form>
       </div>
