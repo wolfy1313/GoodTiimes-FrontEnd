@@ -51,7 +51,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>} />
           <Route path="/register" element={<Register />} />
-          <Route path='/venues' element={<Venues authenticated={authenticated}/>} />
+          <Route path='/venues/:venue_id' element={<Venues authenticated={authenticated}/>} />
           <Route path='/venues/:venue_id' element={<VenueDetails selectedVenue={selectedVenue} authenticated={authenticated}/>}/>
           <Route path='/review-form/:venue_id' element={<ReviewForm user={user} authenticated={authenticated}/>} />
         </Routes>
