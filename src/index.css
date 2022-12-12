@@ -20,3 +20,15 @@ html {
   font-variant: small-caps;
 }
 
+.image{
+  height: 40vh;
+  width: 45vw;
+}
+
+.nav-div, .loggedOutNavDiv{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: flex-start;
+  align-items: center;
+}

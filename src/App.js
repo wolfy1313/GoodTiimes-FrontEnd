@@ -3,12 +3,12 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
-import Venues from './components/Venues';
+import VenueDetails from './components/VenueDetails';
 import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { CheckSession } from './services/Auth'
 import ReviewForm from './components/ReviewForm';
-import VenueDetails from './components/VenueDetails';
+
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -51,8 +51,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>} />
           <Route path="/register" element={<Register />} />
-          <Route path='/venues/:venue_id' element={<Venues authenticated={authenticated}/>} />
-          <Route path='/venues/:venue_id' element={<VenueDetails selectedVenue={selectedVenue} authenticated={authenticated}/>}/>
+          <Route path='/venues/:venue_id' element={<VenueDetails user={user}authenticated={authenticated}/>} />
           <Route path='/review-form/:venue_id' element={<ReviewForm user={user} authenticated={authenticated}/>} />
         </Routes>
       </main>

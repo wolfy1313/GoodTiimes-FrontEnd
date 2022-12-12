@@ -1,26 +1,20 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-// import Register from './components/Register';
-// import Login from './components/Login';
-// import ReviewForm from './ReviewForm';
-// import VenueDetails from './VenueDetails';
-// import Venues from './Venues';
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 const Home = ({toggleAuthenticated, authenticated, user, setUser, checkToken}) => {
   let navigate = useNavigate()
-  // const [selectedVenue, setSelectedVenue] = useState(null)
-  // const [selectedEvent, setSelectedEvent] = useState(null)
   const [venues, setVenues] = useState([])
 
+
+  const getVenues = async () => {
+    let res = await axios.get(`http://localhost:3001/api/venue`)
+    console.log(res.data)
+    setVenues(res.data)
+  }
   
   useEffect(() => {
-    const getVenues = async () => {
-      let res = await axios.get(`http://localhost:3001/api/venue`)
-      console.log(res.data)
-      setVenues(res.data)
-    }
     getVenues()
   }, [])
 
@@ -53,18 +47,3 @@ const Home = ({toggleAuthenticated, authenticated, user, setUser, checkToken}) =
 }
 
 export default Home
-
-      // <Routes>
-        {/* <Route path='/login'
-        element={<Login
-        toggleAuthenticated={toggleAuthenticated}
-        authenticated={authenticated}
-        user={user}
-      setUser={setUser}/>}>
-
-      </Route> */}
-      // </Routes>
-      // <section className='welcome-login'>
-      //   <button onClick={() => navigate('/login')}>
-      //   </button>
-      // </section>
