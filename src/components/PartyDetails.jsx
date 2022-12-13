@@ -4,8 +4,8 @@ import axios from 'axios'
 import { useParams, useNavigate } from 'react-router-dom'
 
 const PartyDetails = ({user, authenticated}) => {
-  // let navigate = useNavigate()
-  let {party_id} = useParams()
+  let navigate = useNavigate()
+  let {party_id, user_id} = useParams()
   
   const [show, setShow]= useState()
   const [commentsParty, setCommentsParty] = useState('')
@@ -23,7 +23,9 @@ const PartyDetails = ({user, authenticated}) => {
     getShow()
   }, [])
 
-  const addComment = () => {}
+  const addComment = (comment) => {
+    navigate(`/comment-form/${party_id}/${user_id}`)
+  }
   
   
   return (
@@ -60,7 +62,7 @@ const PartyDetails = ({user, authenticated}) => {
           <h3 className='partyName name'>Comment: {show?.Comments.comment}</h3>
           <h3 className='partyName name'>username: {comment.username}</h3>
           {!authenticated ? <br/> :
-          <button className='new-comment-button button'>Add A Comment</button>}
+          <button className='new-comment-button button' onClick={() => addComment(comment)}>Add A Comment</button>}
           <br/>
           <br/>
           </div>

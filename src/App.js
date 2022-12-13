@@ -53,7 +53,7 @@ function App() {
           <Route path="/home/:user_id" element={<Home user={user} authenticated={authenticated} userParty={userParty} checkToken={checkToken} setUserParty={setUserParty} userEvent={userEvent} setUserEvent={setUserEvent}/>} />
           <Route path="/login" element={<Login setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>} />
           <Route path="/register" element={<Register authenticated={authenticated}/>} />
-          <Route path='/parties/:party_id' element={<PartyDetails user={user}authenticated={authenticated}/>} />
+          <Route path='/parties/:user_id/:party_id' element={<PartyDetails user={user}authenticated={authenticated}/>} />
           <Route path='/comment-form/:party_id/:user_id' element={<CommentForm user={user} authenticated={authenticated}/>} />
           <Route path='/create-party/:user_id' element={<NewParty user={user}/>} />
         </Routes>

@@ -1,10 +1,11 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 
 const Home = ({toggleAuthenticated, authenticated, user, setUser, checkToken}) => {
   let navigate = useNavigate()
+  let {user_id} = useParams()
   const [parties, setParties] = useState([])
 
 console.log(user)
@@ -20,7 +21,7 @@ console.log(user)
   }, [])
 
   const showParty = (party) => {
-    navigate(`/parties/${party.id}`)
+    navigate(`/parties/${user_id}/${party.id}`)
   }
 
 
