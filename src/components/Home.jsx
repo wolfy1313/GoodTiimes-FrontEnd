@@ -9,7 +9,7 @@ const Home = ({toggleAuthenticated, authenticated, user, setUser, checkToken}) =
 
 
   const getVenues = async () => {
-    let res = await axios.get(`http://localhost:3001/api/venue`)
+    let res = await axios.get(`http://localhost:3001/api/party`)
     console.log(res.data)
     setVenues(res.data)
   }

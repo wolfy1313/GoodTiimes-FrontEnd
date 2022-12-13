@@ -3,18 +3,18 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
-import VenueDetails from './components/VenueDetails';
+import PartyDetails from './components/PartyDetails';
 import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { CheckSession } from './services/Auth'
-import ReviewForm from './components/ReviewForm';
-import NewVenue from './components/NewVenue';
+import CommentForm from './components/CommentForm';
+import NewParty from './components/NewParty';
 
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
-  const [userVenue, setUserVenue] = useState(null)
+  const [userParty, setUserParty] = useState(null)
   const [userEvent, setUserEvent] = useState(null)
 
   
@@ -50,12 +50,12 @@ function App() {
            <main>
         <Routes>
           <Route path="/" element={<Home user={user} authenticated={authenticated} />} />
-          <Route path="/home/:user_id" element={<Home user={user} authenticated={authenticated} userVenue={userVenue} checkToken={checkToken} setUserVenue={setUserVenue} userEvent={userEvent} setUserEvent={setUserEvent}/>} />
+          <Route path="/home/:user_id" element={<Home user={user} authenticated={authenticated} userParty={userParty} checkToken={checkToken} setUserParty={setUserParty} userEvent={userEvent} setUserEvent={setUserEvent}/>} />
           <Route path="/login" element={<Login setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>} />
           <Route path="/register" element={<Register authenticated={authenticated}/>} />
-          <Route path='/venues/:venue_id' element={<VenueDetails user={user}authenticated={authenticated}/>} />
-          <Route path='/review-form/:venue_id' element={<ReviewForm user={user} authenticated={authenticated}/>} />
-          <Route path='/create-party' element={<NewVenue user={user}/>} />
+          <Route path='/parties/:party_id' element={<PartyDetails user={user}authenticated={authenticated}/>} />
+          <Route path='/comment-form/:party_id/:user_id' element={<CommentForm user={user} authenticated={authenticated}/>} />
+          <Route path='/create-party/:user_id' element={<NewParty user={user}/>} />
         </Routes>
       </main>
     </div>

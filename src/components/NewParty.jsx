@@ -1,9 +1,10 @@
 import React from 'react'
 import Client from '../services/api'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const NewVenue = ({user}) => {
+const NewParty = ({user}) => {
+  const {user_id} = useParams()
   const navigate = useNavigate()
   const initialFormValues = { name: '', address: '', image: ''}
   const [formValues, setFormValues] = useState(initialFormValues)
@@ -14,11 +15,11 @@ const NewVenue = ({user}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let newVenueWithId = { ...formValues, user_id: user.id }
-    await Client.post(`/api/venue`, newVenueWithId)
+    let newPartyWithId = { ...formValues, user_id: user_id }
+    await Client.post(`/api/party`, newPartyWithId)
     .then((res) => {
       setFormValues(initialFormValues)
-      navigate(`/home/${user.id}`)
+      navigate(`/home/${user_id}`)
     })
     .catch((error) => {
       console.log(error)
@@ -28,7 +29,7 @@ const NewVenue = ({user}) => {
     <div>
       <h1>Create a Party!</h1>
       <form onSubmit={handleSubmit}>
-        <div className='create-venue-input-wrapper input-wrapper'>
+        <div className='create-party-input-wrapper input-wrapper'>
           <label htmlFor='name'>Party Name:</label>
           <input
             onChange={handleChange}
@@ -37,8 +38,8 @@ const NewVenue = ({user}) => {
             value={formValues.name} required
           />
           </div>
-        <div className='create-venue-input-wrapper input-wrapper'>
-          <label htmlFor='address'>Party Location:</label>
+        <div className='create-party-input-wrapper input-wrapper'>
+          <label htmlFor='address'>Party Address:</label>
           <input
             onChange={handleChange}
             name="address"
@@ -46,7 +47,25 @@ const NewVenue = ({user}) => {
             value={formValues.address} required
           />
           </div>
-        <div className='create-venue-input-wrapper input-wrapper'>
+        <div className='create-party-input-wrapper input-wrapper'>
+          <label htmlFor='date'>Party Date:</label>
+          <input
+            onChange={handleChange}
+            name="date"
+            type="text"
+            value={formValues.date} required
+          />
+          </div>
+        <div className='create-party-input-wrapper input-wrapper'>
+          <label htmlFor='time'>Party Time:</label>
+          <input
+            onChange={handleChange}
+            name="time"
+            type="text"
+            value={formValues.time} required
+          />
+          </div>
+        <div className='create-party-input-wrapper input-wrapper'>
           <label htmlFor='name'>Party Pic:</label>
           <input
             onChange={handleChange}
@@ -55,10 +74,10 @@ const NewVenue = ({user}) => {
             value={formValues.image} 
           />
         </div>
-        <button className='button add-venue-info-btn' type='submit'>Add Party</button>
+        <button className='button add-party-info-btn' type='submit'>Add Party</button>
       </form>
     </div>
   )
 }
 
-export default NewVenue
+export default NewParty
