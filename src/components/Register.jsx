@@ -36,8 +36,9 @@ const Register = ({authenticated}) => {
 
   return (
     <div className="signin col">
+        {authenticated ? <h1>You are already registered</h1> :
       <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
+        <form className="col registration-input-container" onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <label htmlFor="name">Name</label>
             <input
@@ -92,6 +93,7 @@ const Register = ({authenticated}) => {
           </button>
         </form>
       </div>
+      }
     </div>
   )
 }

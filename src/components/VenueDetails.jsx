@@ -3,63 +3,73 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams, useNavigate } from 'react-router-dom'
 
-const VenueDetails = ({authenticated}) => {
+const VenueDetails = ({user, authenticated}) => {
   // let navigate = useNavigate()
   let {venue_id} = useParams()
   
-  const [venue, setVenue]= useState('')
+  const [show, setShow]= useState()
   const [reviewsVenue, setReviewsVenue] = useState('')
   const [eventsVenue, setEventsVenue] = useState('')
 
-  const getVenue = async () => {
-    const res = await axios.get(`http://localhost:3001/api/venue/${venue_id}`)
-    setVenue(res.data)
-    // console.log(res.data)
-    let events = res.data.venue_event
-    let reviews = res.data.venue_reviews
-    console.log(reviews)
+  useEffect(() => {
+  const getShow = async () => {
+    let res = await axios.get(`http://localhost:3001/api/venue/${venue_id}`)
+    setShow(res.data[0])
+    console.log(res.data)
+    console.log(show)
+    let events = res.data[0].venue_event
+    // let reviews = res.data.venue_reviews
+    // console.log(events)
     setEventsVenue(events)
-    setReviewsVenue(reviews)
+    // setReviewsVenue(reviews)
     let newEvents = []
     let eventsVenue = []
     let reviewsVenue = []
   }
-  
-  useEffect(() => {
-    getVenue()
+    getShow()
   }, [])
+
+  const showUserReviews = () => {}
+  
   
   return (
     <div>
-      <div className='getVenue'>
-             
-          <div className='venue list' key={venue.id}>
-          <h1 className='venueName name'>Venue Name: {venue.name}</h1>
-          <img className='venueImage image' alt='photo of the venue' src={venue.image}/>
-          <h2 className='venueAddress address venueh2'>Venue Address: {venue.address}</h2>
+      <div className='getVenue'>            
+          <div className='venue list' key={show?.id}>
+          <h1 className='venueName name'>show Name: {show?.name}</h1>
+          <img className='venueImage image' alt='photo of the venue' src={show?.image}/>
+          <h2 className='venueAddress address venueh2'>Venue Address: {show?.address}</h2>
           </div>
         
       </div>
       <div>
         <div className='getEvents'>
-          <h1>Events at this Venue:</h1>
+          <br/>
+          <h1>Attendees:</h1>
+          <br/>
         {eventsVenue && (eventsVenue.map(event =>(
           <div className='events list' key={event.id}>
-          <h3 className='venueName name'>Name: {event.Event.title}</h3>
-          <h3 className='venueName name'>Description: {event.Event.description}</h3>
+          {/* <h3 className='venueName name'>Name: {event.Event.title}</h3>
+          <h3 className='venueName name'>Description: {event.Event.description}</h3> */}
           <h3 className='venueName name'>Creator: {event.name}</h3>
-          <button className='new-event-button button'>Add Your Event At This Venue</button>
+          {!authenticated ? <br/>: 
+          <button className='new-event-button button'>Add Your Event At This Venue</button>}
+          <br/>
           <br/>
           </div>
           )))}
         </div>
         <div className='getReviews'>
           <h1>Reviews for this Venue:</h1>
+          <br/>
         {reviewsVenue && (reviewsVenue.map(review =>(
           <div className='reviews list' key={review.id}>
           <h3 className='venueName name'>Title: {review.Review.title}</h3>
           <h3 className='venueName name'>Review: {review.Review.review}</h3>
           <h3 className='venueName name'>username: {review.username}</h3>
+          {!authenticated ? <br/> :
+          <button className='new-review-button button'>Add A Review</button>}
+          <br/>
           <br/>
           </div>
           )))}
