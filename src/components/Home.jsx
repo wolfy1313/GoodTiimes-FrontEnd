@@ -5,22 +5,22 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 
 const Home = ({toggleAuthenticated, authenticated, user, setUser, checkToken}) => {
   let navigate = useNavigate()
-  const [venues, setVenues] = useState([])
+  const [parties, setParties] = useState([])
 
-
-  const getVenues = async () => {
+console.log(user)
+  const getParties = async () => {
     let res = await axios.get(`http://localhost:3001/api/party`)
     console.log(res.data)
-    setVenues(res.data)
+    setParties(res.data)
   }
   console.log(user)
   
   useEffect(() => {
-    getVenues()
+    getParties()
   }, [])
 
-  const showVenue = (venue) => {
-    navigate(`/venues/${venue.id}`)
+  const showParty = (party) => {
+    navigate(`/parties/${party.id}`)
   }
 
 
@@ -30,14 +30,16 @@ const Home = ({toggleAuthenticated, authenticated, user, setUser, checkToken}) =
     <div className={authenticated ? "loggedInHome" : "loggedOutHome"}>
          
         <h1 className='page-title'>Welcome To Your Next Good Tiime</h1>
-        {!authenticated ? <h2 className='homeh2'>Register and Login to create a review or add yourself to the list of attendees!</h2> :  <h2>Welcome {user.name}!</h2>}
-        <h2 className='homeh2'>Here's the list of upcoming shows.</h2>
+        {!authenticated ? <h2 className='homeh2'>Register and Login to create a party or make a comment!</h2> :  <h2>Welcome {user.username}!</h2>}
+        <h2 className='homeh2'>Here's the list of upcoming parties.</h2>
       <div>
-        {venues?.map((venue) => (
-          <div className='venue-card' onClick={() => showVenue(venue)} key={venue.id}>
-            <h1>{venue.name}</h1>
-            <h2>{venue.address}</h2>
-            <img className='venueImage image' alt='photo of the venue' src={venue.image}/>
+        {parties?.map((party) => (
+          <div className='party-card' onClick={() => showParty(party)} key={party.id}>
+            <h1>{party.name}</h1>
+            <h2>{party.date}</h2>
+            <h2>{party.time}</h2>
+            <h2>{party.address}</h2>
+            <img className='partyImage image' alt='photo of the party' src={party.image}/>
           </div> 
         ))}
       

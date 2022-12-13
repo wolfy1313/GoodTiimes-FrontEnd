@@ -19,6 +19,7 @@ const Login = ({toggleAuthenticated, setUser}) => {
     toggleAuthenticated(true);
     navigate(`/home/${payload.id}`)
   }
+  // console.log(user)
   return (
     <div className="login-page">
     <div className="login-wrapper">
