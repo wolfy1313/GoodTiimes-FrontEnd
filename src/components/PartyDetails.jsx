@@ -8,35 +8,30 @@ const PartyDetails = ({user, authenticated}) => {
   let {party_id} = useParams()
   
   const [show, setShow]= useState()
-  const [commentsParty, setReviewsParty] = useState('')
+  const [commentsParty, setCommentsParty] = useState('')
   const [user_partyParty, setUser_PartyParty] = useState('')
 
   useEffect(() => {
   const getShow = async () => {
     let res = await axios.get(`http://localhost:3001/api/party/${party_id}`)
-    setShow(res.data[0])
     console.log(res.data)
-    console.log(show)
-    let user_party = res.data[0].party_event
-    // let comments = res.data.party_comments
-    // console.log(user_party)
-    setUser_PartyParty(user_party)
-    // setReviewsParty(comments)
+    setShow(res.data[0])
+    setCommentsParty([res.data[0].Comments])
     let newUser_Party = []
     let user_partyParty = []
-    let commentsParty = []
   }
     getShow()
   }, [])
 
-  const showUserReviews = () => {}
+  const addComment = () => {}
   
   
   return (
     <div>
       <div className='getParty'>            
           <div className='party list' key={show?.id}>
-          <h1 className='partyName name'>show Name: {show?.name}</h1>
+          <h1 className='partyName name'>Party Name: {show?.name}</h1>
+          <h1 className='partyName name'>Party Date: {show?.date} | Party Time: {show?.time}</h1>
           <img className='partyImage image' alt='photo of the party' src={show?.image}/>
           <h2 className='partyAddress address partyh2'>Party Address: {show?.address}</h2>
           </div>
@@ -58,11 +53,11 @@ const PartyDetails = ({user, authenticated}) => {
           )))}
         </div> */}
         <div className='getComments'>
-          <h1>Reviews for this Party:</h1>
+          <h1>Comments for this Party:</h1>
           <br/>
         {commentsParty && (commentsParty.map(comment =>(
           <div className='comments list' key={comment.id}>
-          <h3 className='partyName name'>Comment: {comment.Comment.comment}</h3>
+          <h3 className='partyName name'>Comment: {show?.Comments.comment}</h3>
           <h3 className='partyName name'>username: {comment.username}</h3>
           {!authenticated ? <br/> :
           <button className='new-comment-button button'>Add A Comment</button>}
