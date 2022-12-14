@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 
-const Home = ({toggleAuthenticated, authenticated, user, setUser, checkToken}) => {
+const Home = ({toggleAuthenticated, authenticated, user, setUser, checkToken, userParty, setUserParty}) => {
   let navigate = useNavigate()
   let {user_id} = useParams()
   const [parties, setParties] = useState([])

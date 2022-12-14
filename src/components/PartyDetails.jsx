@@ -7,35 +7,43 @@ const PartyDetails = ({user, authenticated}) => {
   let navigate = useNavigate()
   let {party_id, user_id} = useParams()
   
-  const [show, setShow]= useState()
+  const [party, setParty]= useState()
   const [commentsParty, setCommentsParty] = useState('')
   const [user_partyParty, setUser_PartyParty] = useState('')
 
   useEffect(() => {
-  const getShow = async () => {
+  const getParty = async () => {
     let res = await axios.get(`http://localhost:3001/api/party/${party_id}`)
     console.log(res.data)
-    setShow(res.data[0])
-    setCommentsParty([res.data[0].Comments])
+    setParty(res.data[0])
+    let data = res.data
+    let commentsParty = []
+    data.forEach(comment => {
+      commentsParty.push(comment.Comments)
+    });
+    setCommentsParty(commentsParty)
     let newUser_Party = []
     let user_partyParty = []
   }
-    getShow()
+    getParty()
   }, [])
 
   const addComment = (comment) => {
     navigate(`/comment-form/${party_id}/${user_id}`)
   }
-  
+  const updateComment = (comment) => {
+    navigate(`comment/update/`)
+  }
+console.log(commentsParty)
   
   return (
     <div>
       <div className='getParty'>            
-          <div className='party list' key={show?.id}>
-          <h1 className='partyName name'>Party Name: {show?.name}</h1>
-          <h1 className='partyName name'>Party Date: {show?.date} | Party Time: {show?.time}</h1>
-          <img className='partyImage image' alt='photo of the party' src={show?.image}/>
-          <h2 className='partyAddress address partyh2'>Party Address: {show?.address}</h2>
+          <div className='party list' key={party?.id}>
+          <h1 className='partyName name'>Party Name: {party?.name}</h1>
+          <h1 className='partyName name'>Party Date: {party?.date} | Party Time: {party?.time}</h1>
+          <img className='partyImage image' alt='photo of the party' src={party?.image}/>
+          <h2 className='partyAddress address partyh2'>Party Address: {party?.address}</h2>
           </div>
         
       </div>
@@ -57,9 +65,9 @@ const PartyDetails = ({user, authenticated}) => {
         <div className='getComments'>
           <h1>Comments for this Party:</h1>
           <br/>
-        {commentsParty && (commentsParty.map(comment =>(
+        {!commentsParty ? <h3>No Comments Yet</h3> : (commentsParty.map(comment =>(
           <div className='comments list' key={comment.id}>
-          <h3 className='partyName name'>Comment: {show?.Comments.comment}</h3>
+          <h3 className='partyName name'>Comment: {comment.comment}</h3>
           <h3 className='partyName name'>username: {comment.username}</h3>
           {!authenticated ? <br/> :
           <button className='new-comment-button button' onClick={() => addComment(comment)}>Add A Comment</button>}

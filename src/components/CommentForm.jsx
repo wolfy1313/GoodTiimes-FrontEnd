@@ -18,10 +18,10 @@ const handleChange = (e) => {
 const handleSubmit = async (e) => {
   e.preventDefault()
   let newPartyCommentWithUserId = {...formValues, party_id:party_id, user_id:user_id}
-  await Client.post(`/api/postComment`, newPartyCommentWithUserId)
+  await Client.post(`/api/comment/postComment`, newPartyCommentWithUserId)
     .then((res) => {
       setFormValues(initialState)
-      navigate(`/parties/${party_id}`)
+      navigate(`/parties/${user_id}/${party_id}`)
     })
     .catch((error) => {
       console.log(error)
@@ -37,8 +37,16 @@ const handleSubmit = async (e) => {
           onChange={handleChange}
           name="comment"
           value={formValues.comment}
+          type="textarea"
+          placeholder="comment"
+          required
+          />
+          <input className='comment-input input'
+          onChange={handleChange}
+          name="username"
+          value={formValues.username}
           type="text"
-          placeholder="make a li'l comment about this party"
+          placeholder="username"
           required
           />
           <button type='submit' disabled={!formValues.comment}>Submit Comment</button>
