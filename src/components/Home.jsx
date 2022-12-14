@@ -31,11 +31,12 @@ console.log(user)
     <div className={authenticated ? "loggedInHome" : "loggedOutHome"}>
          
         <h1 className='page-title'>Welcome To Your Next Good Tiime</h1>
-        {!authenticated ? <h2 className='homeh2'>Register and Login to create a party or make a comment!</h2> :  <h2>Welcome {user.username}!</h2>}
+        {!authenticated ? <h2 className='homeh2'>Register and Login to create a party and make a comment!</h2> :  <h2>Welcome {user.username}!</h2>}
         <h2 className='homeh2'>Here's the list of upcoming parties.</h2>
       <div>
+       
         {parties?.map((party) => (
-          <div className='party-card' onClick={() => showParty(party)} key={party.id}>
+           <div className='party-card' onClick={() => {{authenticated ? showParty(party) : <h1>You must be logged in</h1>}}} key={party.id}>
             <h1>{party.name}</h1>
             <h2>{party.date}</h2>
             <h2>{party.time}</h2>

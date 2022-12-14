@@ -8,23 +8,24 @@ const PartyDetails = ({user, authenticated}) => {
   let {party_id, user_id} = useParams()
   
   const [party, setParty]= useState()
-  const [commentsParty, setCommentsParty] = useState('')
+  const [commentsParty, setCommentsParty] = useState([])
   const [user_partyParty, setUser_PartyParty] = useState('')
 
-  useEffect(() => {
   const getParty = async () => {
-    let res = await axios.get(`http://localhost:3001/api/party/${party_id}`)
-    console.log(res.data)
-    setParty(res.data[0])
-    let data = res.data
-    let commentsParty = []
-    data.forEach(comment => {
-      commentsParty.push(comment.Comments)
-    });
-    setCommentsParty(commentsParty)
+    let res = await axios.get(`http://localhost:3001/api/party/user/${party_id}`)
+    console.log(res.data[0].Comments)
+    setParty(res.data[0]);
+    setCommentsParty(res.data[0].Comments)
+    // let data = res.data[0].Comments
+    // let commentsParty = []
+    // data.forEach(comment => {
+    //   commentsParty.push(comment.username)
+    // });
+    // setCommentsParty(commentsParty)
     let newUser_Party = []
     let user_partyParty = []
-  }
+  } 
+  useEffect(() => {
     getParty()
   }, [])
 
@@ -33,8 +34,7 @@ const PartyDetails = ({user, authenticated}) => {
   }
   const updateComment = (comment) => {
     navigate(`comment/update/`)
-  }
-console.log(commentsParty)
+  } 
   
   return (
     <div>
@@ -63,8 +63,8 @@ console.log(commentsParty)
           )))}
         </div> */}
         <div className='getComments'>
-          <h1>Comments for this Party:</h1>
           <br/>
+          <h1>Comments for this Party:</h1>
         {!commentsParty ? <h3>No Comments Yet</h3> : (commentsParty.map(comment =>(
           <div className='comments list' key={comment.id}>
           <h3 className='partyName name'>Comment: {comment.comment}</h3>
@@ -74,7 +74,7 @@ console.log(commentsParty)
           <br/>
           <br/>
           </div>
-          )))}
+        )))}
         </div>
         </div>
     </div>
