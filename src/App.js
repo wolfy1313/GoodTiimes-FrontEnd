@@ -42,7 +42,6 @@ function App() {
 
 
 
-
   return (
     <div className="App">
       <NavBar
@@ -53,13 +52,14 @@ function App() {
            <main>
         <Routes>
           <Route path="/" element={<Home user={user} authenticated={authenticated} />} />
-          <Route path="/home/:user_id" element={<UserHome user={user} authenticated={authenticated} userParty={userParty} checkToken={checkToken} setUserParty={setUserParty} userEvent={userEvent} setUserEvent={setUserEvent}/>} />
+          <Route path="/home/:user_id" element={<Home user={user} authenticated={authenticated} userParty={userParty} checkToken={checkToken} setUserParty={setUserParty} userEvent={userEvent} setUserEvent={setUserEvent}/>} />
           <Route path="/login" element={<Login setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>} />
           <Route path="/register" element={<Register authenticated={authenticated}/>} />
           <Route path='/parties/:user_id/:party_id' element={<PartyDetails user={user}authenticated={authenticated} selectedComment={selectedComment} setSelectedComment={setSelectedComment}/>} />
           <Route path='/comment-form/:party_id/:user_id' element={<CommentForm user={user} authenticated={authenticated} userParty={userParty} setUserParty={setUserParty}/>} />
+          <Route path='/create-party/:user_id/' element={<NewParty user={user} userParty={userParty} setUserParty={setUserParty}/>} />
           <Route path='/create-party/:user_id/:party_id' element={<NewParty user={user} userParty={userParty} setUserParty={setUserParty}/>} />
-          <Route path='/update-comment/:user_id' element={<UpdateComment user={user} userParty={userParty} setUserParty={setUserParty} selectedComment={selectedComment}/>} />
+          <Route path='/update-comment/:party_id/:comment_id' element={<UpdateComment user={user} userParty={userParty} setUserParty={setUserParty} selectedComment={selectedComment}/>} />
         </Routes>
       </main>
     </div>

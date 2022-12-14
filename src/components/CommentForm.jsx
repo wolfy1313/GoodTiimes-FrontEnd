@@ -35,18 +35,17 @@ const handleSubmit = async (e) => {
         <form onSubmit={handleSubmit}>
           <input className='comment-input input'
           onChange={handleChange}
-          name="comment"
-          value={formValues.comment}
-          type="textarea"
-          placeholder="comment"
-          required
-          />
-          <input className='comment-input input'
-          onChange={handleChange}
           name="username"
           value={formValues.username}
           type="text"
           placeholder="username"
+          required
+          />
+          <textarea className='comment-input input'
+          onChange={handleChange}
+          name="comment"
+          value={formValues.comment}
+          placeholder="comment"
           required
           />
           <button type='submit' disabled={!formValues.comment}>Submit Comment</button>
