@@ -6,6 +6,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  font-family: 'Alegreya Sans', sans-serif;
 }
 
 html {
@@ -17,12 +18,33 @@ html {
 }
 
 .name, .homeh2, .pageTitle{
-  font-variant: small-caps;
+  font-variant: light;
 }
 
 .image{
   height: 40vh;
   width: 45vw;
+}
+
+.input-wrapper{
+
+}
+
+.getParty{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 5px solid black;
+  max-width: 500px;
+  flex-direction: column;
+}
+
+.getParty:hover{
+  box-shadow: 1px 1px black, 2px 2px black, 3px 3px black, 4px 4px black, 5px 5px black, 6px 6px black;
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
+  transition: .5s ease;
 }
 
 .nav-div, .loggedOutNavDiv{

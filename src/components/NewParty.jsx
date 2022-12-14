@@ -15,7 +15,7 @@ const NewParty = ({user}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let newPartyWithId = { ...formValues, user_id: user_id }
+    let newPartyWithId = { ...formValues, party_user: [{user_id:user.id}] }
     await Client.post(`/api/party`, newPartyWithId)
     .then((res) => {
       setFormValues(initialFormValues)
