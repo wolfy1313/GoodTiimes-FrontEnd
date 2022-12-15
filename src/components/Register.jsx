@@ -38,33 +38,31 @@ const Register = ({authenticated}) => {
     <div className="signin col">
         {authenticated ? <h1>You are already registered</h1> :
       <div className="card-overlay centered">
-        <form className="col registration-input-container" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="name">Name</label>
-            <input
+            <label className='form-label'>Name:  </label>
+            <input className='form-input'
               onChange={handleChange}
               name="name"
               type="text"
-              placeholder="Bun Bee"
               value={formValues.name}
               required
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="username">Username</label>
-            <input
+            <label className='form-label'>Username:  </label>
+            <input className='form-input'
               onChange={handleChange}
               name="username"
               type="text"
-              placeholder="enter username"
               value={formValues.username}
               required
             />
           </div>
 
           <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
-            <input
+            <label className='form-label'>Password:  </label>
+            <input className='form-input'
               onChange={handleChange}
               type="password"
               name="password"
@@ -73,8 +71,8 @@ const Register = ({authenticated}) => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
+            <label className='form-label'>Confirm Password:  </label>
+            <input className='form-input'
               onChange={handleChange}
               type="password"
               name="confirmPassword"
@@ -82,7 +80,7 @@ const Register = ({authenticated}) => {
               required
             />
           </div>
-          <button
+          <button className='form-button'
             disabled={
               !formValues.username ||
               (!formValues.password &&

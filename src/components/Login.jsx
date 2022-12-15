@@ -23,21 +23,20 @@ const Login = ({toggleAuthenticated, setUser}) => {
   return (
     <div className="login-page">
     <div className="login-wrapper">
-      <form className="col" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <div>
-          <label className="login-label"htmlFor="username">Username</label>
-          <input className="login-inputs"
+          <label className="form-label">Username:  </label>
+          <input className="form-input"
             onChange={handleChange}
             name="username"
             type="text"
-            placeholder="example@example.com"
             value={formValues.username}
             required
           />
         </div>
         <div >
-          <label className="login-label" htmlFor="password">Password</label>
-          <input className="login-inputs"
+          <label className="login-label form-label">Password:  </label>
+          <input className="login-inputs form-input"
             onChange={handleChange}
             type="password"
             name="password"

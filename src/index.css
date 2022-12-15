@@ -8,13 +8,9 @@
   text-decoration: none;
   font-family: 'Alegreya Sans', sans-serif;
 }
-/* label {
-  float: left;
-  text-align: right;
-  margin-right: 15px;
-  width: 100px;
-} */
-
+button{
+  cursor: pointer;
+}
 body {
   padding: 0px;
   margin: 0px;
@@ -27,12 +23,12 @@ html {
 }
 
 .form-label {
-  display: block;
 	color: #888;
 	margin-bottom: 15px;
 }
 
-.form-button{
+.form-button, .login-btn{
+  display: flex;
 	background: black;
 	padding: 8px 20px 8px 20px;
 	border-radius: 5px;
@@ -55,7 +51,7 @@ html {
 	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
 }
 
-.comment-form{
+.comment-form, .form{
   display: block;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -83,8 +79,11 @@ html {
 	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
 	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
 }
-
-.form-textarea, .form-input{
+.form-textarea{
+  height: 10vh;
+}
+.form-textarea, .form-input, .input{
+  padding-left: 10px;
   font-family: 'Alegreya Sans', sans-serif;
   background-color: antiquewhite;
   color: black;
@@ -96,12 +95,18 @@ font-variant-caps: all-small-caps;
 text-decoration:underline;
 text-decoration-color: darkolivegreen;
 }
-
+.party-card{
+  background-color: darkcyan;
+  border: 2px solid #323637;
+  padding: 2px;
+}
 .party-card:hover{
   opacity:1;
   transition: 1s ease;
 }
-
+.nav-div, .loggedOutNavDiv{
+  background-color: olive;
+}
 a{
   text-decoration: none;
   color: black;

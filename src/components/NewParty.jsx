@@ -27,11 +27,11 @@ const NewParty = ({user}) => {
   }
   return (
     <div>
-      <h1>Create a Party!</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className="comment-header">Create a Party!</h1>
+      <form className='form' onSubmit={handleSubmit}>
         <div className='create-party-input-wrapper input-wrapper'>
-          <label htmlFor='name'>Party Name:</label>
-          <input
+        <label className='form-label'>Party Name:  </label>
+          <input className='form-input input'
             onChange={handleChange}
             name="name"
             type="text"
@@ -39,8 +39,8 @@ const NewParty = ({user}) => {
           />
           </div>
         <div className='create-party-input-wrapper input-wrapper'>
-          <label htmlFor='address'>Party Address:</label>
-          <input
+        <label className='form-label'>Party Address:  </label>
+          <input className='form-input input'
             onChange={handleChange}
             name="address"
             type="text"
@@ -48,8 +48,8 @@ const NewParty = ({user}) => {
           />
           </div>
         <div className='create-party-input-wrapper input-wrapper'>
-          <label htmlFor='date'>Party Date:</label>
-          <input
+        <label className='form-label'>Party Date:  </label>
+          <input className='form-input input'
             onChange={handleChange}
             name="date"
             type="text"
@@ -57,8 +57,8 @@ const NewParty = ({user}) => {
           />
           </div>
         <div className='create-party-input-wrapper input-wrapper'>
-          <label htmlFor='time'>Party Time:</label>
-          <input
+        <label className='form-label'>Party Time:  </label>
+          <input className='form-input input'
             onChange={handleChange}
             name="time"
             type="text"
@@ -66,15 +66,15 @@ const NewParty = ({user}) => {
           />
           </div>
         <div className='create-party-input-wrapper input-wrapper'>
-          <label htmlFor='name'>Party Pic:</label>
-          <input
+        <label className='form-label'>Party Pic:  </label>
+          <input className='form-input input'
             onChange={handleChange}
             name="image"
             type="text"
             value={formValues.image} 
           />
         </div>
-        <button className='button add-party-info-btn' type='submit'>Add Party</button>
+        <button className='form-button' type='submit'>Add Party</button>
       </form>
     </div>
   )

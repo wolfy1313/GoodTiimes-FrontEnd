@@ -42,27 +42,27 @@ const UpdateComment = ({user}) => {
   },[])
 
   return (
-    <div>
-    <section className='comment-form'>
-      <h2>Update Your Comment!</h2>
-      <form onSubmit={handleSubmit}>
-        <input className='comment-input input'
-        onChange={handleChange}
-        name="comment"
-        value={formDetails.comment}
-        type="textarea"
-        placeholder="comment"
-        required
-        />
-        <input className='comment-input input'
-        onChange={handleChange}
-        name="username"
-        value={formDetails.username}
-        type="text"
-        placeholder="username"
-        required
-        />
-        <button type='submit' disabled={!formDetails.comment}>Submit Update</button>
+    <div className='form'>
+    <section className='comment-section'>
+      <h2 className="comment-header">Update Your Comment!</h2>
+      <form className='comment-form' onSubmit={handleSubmit}>
+      <label className='form-label'>Username:  
+          <input className='form-input input'
+          onChange={handleChange}
+          name="username"
+          value={formDetails.username}
+          type="text"
+          required
+          /></label>
+          <label className='form-label'>Comment:  
+          <textarea className='form-textarea input'
+          onChange={handleChange}
+          name="comment"
+          value={formDetails.comment}
+          required
+          />
+          </label>
+        <button className='form-button' type='submit' disabled={!formDetails.comment}>Submit Update</button>
       </form>
       </section>
 
