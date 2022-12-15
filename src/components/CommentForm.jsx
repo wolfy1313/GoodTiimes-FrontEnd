@@ -41,6 +41,7 @@ const handleSubmit = async (e) => {
           type="text"
           required
           /></label>
+          <br/>
           <label className='form-label'>Comment:  
           <textarea className='form-textarea input'
           onChange={handleChange}
@@ -49,6 +50,7 @@ const handleSubmit = async (e) => {
           required
           />
           </label>
+          <br/>
           <button className='form-button' type='submit' disabled={!formValues.comment}>Submit Comment</button>
         </form>
         </section>

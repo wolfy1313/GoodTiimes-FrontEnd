@@ -45,7 +45,7 @@ const UpdateComment = ({user}) => {
   return (
     <div className='form'>
       <marquee behavior="scroll" direction="left">
-        <img src={image} height="95"/>
+        <img src={image} height="125"/>
       </marquee>
     <section className='comment-section'>
       <h2 className="comment-header">Update Your Comment!</h2>
