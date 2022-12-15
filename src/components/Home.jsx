@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 
-const Home = ({toggleAuthenticated, authenticated, user, setUser, checkToken, userParty, setUserParty}) => {
+const Home = ({authenticated, user}) => {
   let navigate = useNavigate()
   let {user_id} = useParams()
   const [parties, setParties] = useState([])
@@ -30,7 +30,7 @@ console.log(user)
 
     <div className={authenticated ? "loggedInHome" : "loggedOutHome"}>
          
-        <h1 className='page-title'>Welcome To Your Next Good Tiime</h1>
+        <h1 className='page-title animate__animated animate__slideInRight'>Welcome To Your Next Good Time</h1>
         {!authenticated ? <h2 className='homeh2'>Register and Login to create a party and make a comment!</h2> :  <h2>Welcome {user.username}!</h2>}
         <h2 className='homeh2'>Here's the list of upcoming parties.</h2>
       <div>

@@ -5,7 +5,7 @@ import { BASE_URL } from '../services/api'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const UpdateComment = ({user, authenticated, selectedComment}) => {
+const UpdateComment = ({user}) => {
   const initialFormValues = {}
   const [formDetails, setFormDetails] = useState(initialFormValues)
   const navigate = useNavigate()

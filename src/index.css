@@ -8,14 +8,33 @@
   text-decoration: none;
   font-family: 'Alegreya Sans', sans-serif;
 }
+/* label {
+  float: left;
+  text-align: right;
+  margin-right: 15px;
+  width: 100px;
+} */
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-size: 20px;
+  min-height: 100vh;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
+.home-subtitle{
+  text-align: center;
+}
+
 ::-webkit-scrollbar {
   display:none;
 }
+
+input[type=text]
 
 .name, .homeh2, .pageTitle{
   font-variant: light;

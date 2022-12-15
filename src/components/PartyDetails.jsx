@@ -6,7 +6,7 @@ import Client from '../services/api'
 import { BASE_URL } from '../services/api'
 
 
-const PartyDetails = ({user, authenticated, selectedComment, setSelectedComment}) => {
+const PartyDetails = ({user}) => {
   let navigate = useNavigate()
   let {party_id, user_id} = useParams()
   
@@ -33,9 +33,9 @@ const PartyDetails = ({user, authenticated, selectedComment, setSelectedComment}
   }
   return (
     <div>
-      <div className='getParty'>            
+      <div className='animate__animated animate__slideInRight getParty'>            
           <div className='party list' key={party?.id}>
-          <h1 className='partyName name'>Party Name: {party?.name}</h1>
+          <h1 className='partyName name '>Party Name: {party?.name}</h1>
           <h1 className='partyName name'>Party Date: {party?.date} | Party Time: {party?.time}</h1>
           <img className='partyImage image' alt='photo of the party' src={party?.image}/>
           <h2 className='partyAddress address partyh2'>Party Address: {party?.address}</h2>
@@ -43,7 +43,7 @@ const PartyDetails = ({user, authenticated, selectedComment, setSelectedComment}
         
       </div>
       <div>
-        <div className='getComments'>
+        <div className='getComments animate__animated animate__slideInUp'>
           <br/>
           <h1>Comments for this Party:</h1>
           <><button className='new-comment-button button' onClick={() => addComment()}>Add A Comment</button></>
@@ -74,33 +74,3 @@ const PartyDetails = ({user, authenticated, selectedComment, setSelectedComment}
 }
 
 export default PartyDetails
-// let newVenueEvents = data.venue_event
-// let newNewVenueEvents = newVenueEvents.Event
-// newVenueEvents.forEach(newEvent => {
-//   newEvents.push(newEvent)
-  // console.log(newEvents)
-  // let venueName = venue.name
-  // let events = venue.venue_event
-  // let reviews = venue.venue_reviews
-  // console.log(events)
-  // if (events.length>0){
-  //   events.map(event => (
-  //     eventsVenue.push(event.Event)
-  //   ))
-  // }
-  // if (reviews.length>0){
-  //   reviews.map(review => (
-  //     reviewsVenue.push(review.Review)
-  //   ))
-  // } 
-// });
-//   if (!eventsVenue[0]) {
-//     return null
-//   } else
-//   setEventsVenue(eventsVenue)
-//   // console.log(eventsVenue)
-//   if (!reviewsVenue[0]) {
-//     return null
-//   } else 
-//   setReviewsVenue(reviewsVenue)
-//   // console.log(reviewsVenue)
