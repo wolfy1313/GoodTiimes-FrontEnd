@@ -1,4 +1,4 @@
-# Good Times Backend
+# Good Times Frontend
 
 Capstone Project
 
@@ -8,16 +8,14 @@ Capstone Project
 
 ## **_Description_**
 
-This app allows users to create reviews of venues as well as create events at venues. Users will be able to login. Once logged in, a user can browse venues and create, update and delete reviews for said venues. A user can also create, update and delete events that they are having at those venues. 
+This app allows users to create parties and comments as well. Users are able to see the parties that are on the list as soon as they arrive to the page. Once they have registered and logged in, they are able to create their own parties and comment on other parties. They can update and delete the comments they make on parties. 
 
 ## **_How to Get Started_**
 
-A user can peruse venues and their reviews without being logged in. Once logged in, a user can create, update and delete 
+A user can peruse parties and their comments without being logged in. Once logged in, a user can create, update and delete comments.
 
 ### **_What you can expect..._**
 
-<!-- ![Venues]()
-![Events]() -->
 
 ## **_Trello Link_**
 
@@ -25,7 +23,7 @@ A user can peruse venues and their reviews without being logged in. Once logged 
 
 ## **_Heroku Link_**
 
-[Heroku Link]()
+[Heroku Link](https://goodtimes-frontend.herokuapp.com/)
 
 ## **_Entity Relationship Diagram_**
 
