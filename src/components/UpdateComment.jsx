@@ -4,6 +4,7 @@ import axios from 'axios'
 import { BASE_URL } from '../services/api'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import image from '../assets/Stephan.PNG'
 
 const UpdateComment = ({user}) => {
   const initialFormValues = {}
@@ -43,6 +44,9 @@ const UpdateComment = ({user}) => {
 
   return (
     <div className='form'>
+      <marquee behavior="scroll" direction="left">
+        <img src={image} height="95"/>
+      </marquee>
     <section className='comment-section'>
       <h2 className="comment-header">Update Your Comment!</h2>
       <form className='comment-form' onSubmit={handleSubmit}>
@@ -54,6 +58,7 @@ const UpdateComment = ({user}) => {
           type="text"
           required
           /></label>
+          <br/>
           <label className='form-label'>Comment:  
           <textarea className='form-textarea input'
           onChange={handleChange}
@@ -62,6 +67,7 @@ const UpdateComment = ({user}) => {
           required
           />
           </label>
+          <br/>
         <button className='form-button' type='submit' disabled={!formDetails.comment}>Submit Update</button>
       </form>
       </section>

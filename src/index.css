@@ -22,14 +22,29 @@ html {
   scroll-behavior: smooth;
 }
 
+.partyName{
+  border: 2px 0px 2px 0px solid black;
+}
+ .party-card-button{
+  display: inline;
+  text-align: center;
+ }
+.comments-list{
+  border: 2px solid black;
+  display: block;
+  margin: 0 auto;
+
+}
 .form-label {
 	color: #888;
 	margin-bottom: 15px;
 }
 
 .form-button, .login-btn{
-  display: flex;
+  display: inline;
 	background: black;
+  margin-bottom: 5px;
+  justify-content: space-between;
 	padding: 8px 20px 8px 20px;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
