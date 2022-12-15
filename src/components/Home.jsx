@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
+import { BASE_URL } from '../services/api'
 
 const Home = ({authenticated, user}) => {
   let navigate = useNavigate()
@@ -10,7 +11,7 @@ const Home = ({authenticated, user}) => {
 
 console.log(user)
   const getParties = async () => {
-    let res = await axios.get(`http://localhost:3001/api/party`)
+    let res = await axios.get(`${BASE_URL}/api/party`)
     console.log(res.data)
     setParties(res.data)
   }

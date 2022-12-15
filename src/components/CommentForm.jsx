@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Client from '../services/api';
+import { BASE_URL } from '../services/api';
 
 
 const CommentForm = ({user, authenticated}) => {
@@ -18,7 +19,7 @@ const handleChange = (e) => {
 const handleSubmit = async (e) => {
   e.preventDefault()
   let newPartyCommentWithUserId = {...formValues, party_id:party_id, user_id:user_id}
-  await Client.post(`/api/comment/postComment`, newPartyCommentWithUserId)
+  await Client.post(`${BASE_URL}/api/comment/postComment`, newPartyCommentWithUserId)
     .then((res) => {
       setFormValues(initialState)
       navigate(`/parties/${user_id}/${party_id}`)

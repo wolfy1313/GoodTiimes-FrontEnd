@@ -1,5 +1,6 @@
 import React from 'react'
 import Client from '../services/api'
+import { BASE_URL } from '../services/api';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -16,7 +17,7 @@ const NewParty = ({user}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let newPartyWithId = { ...formValues, party_user: [{user_id:user.id}] }
-    await Client.post(`/api/party`, newPartyWithId)
+    await Client.post(`${BASE_URL}/api/party`, newPartyWithId)
     .then((res) => {
       setFormValues(initialFormValues)
       navigate(`/home/${user_id}`)

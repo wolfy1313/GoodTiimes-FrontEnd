@@ -12,10 +12,9 @@ const PartyDetails = ({user}) => {
   
   const [party, setParty]= useState()
   const [commentsParty, setCommentsParty] = useState([])
-  const [user_partyParty, setUser_PartyParty] = useState('')
 
   const getParty = async () => {
-    let res = await axios.get(`http://localhost:3001/api/party/user/${party_id}`)
+    let res = await axios.get(`${BASE_URL}/api/party/user/${party_id}`)
     console.log(res.data[0])
     setParty(res.data[0]);
     setCommentsParty(res.data[0].Comments)
