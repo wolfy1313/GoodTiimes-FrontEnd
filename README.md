@@ -21,9 +21,11 @@ A user can peruse parties and their comments without being logged in. Once logge
 
 [Trello Board](https://trello.com/invite/b/1tswebwO/ATTIb409170742ce407920b7890b6f4407723438C5EF/good-times-capstone-project)
 
-## **_Heroku Link_**
+## **_Heroku Links_**
 
-[Heroku Link](https://goodtimes-frontend.herokuapp.com/)
+[Frontend Heroku Link](https://goodtimes-frontend.herokuapp.com/)
+[Backend Heroku Link](https://goodtimes-backend.herokuapp.com/ )
+
 
 ## **_Entity Relationship Diagram_**
 
