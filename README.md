@@ -24,9 +24,12 @@ A user can peruse parties and their comments without being logged in. Once logge
 ## **_Backend Repo Link_**
 [Backend Repo Link](https://github.com/wolfy1313/GoodTiimes-BackEnd)
 
-## **_Heroku Links_**
+## **_Heroku Frontend Link_**
 
 [Frontend Heroku Link](https://goodtimes-frontend.herokuapp.com/)
+
+## **_Heroku Backend Link_**
+
 [Backend Heroku Link](https://goodtimes-backend.herokuapp.com/)
 
 
