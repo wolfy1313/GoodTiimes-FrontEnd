@@ -29,29 +29,27 @@ const handleSubmit = async (e) => {
 }
 
   return (
-    <div>
-      <section className='comment-form'>
-        <h2>Create a Comment!</h2>
-        <form onSubmit={handleSubmit}>
-          <label>Username
-          <input className='comment-input input'
+    <div className='form'>
+      <section className='comment-section'>
+        <h2 className="comment-header">Create a Comment!</h2>
+        <form className='comment-form' onSubmit={handleSubmit}>
+          <label className='form-label'>Username:  
+          <input className='form-input input'
           onChange={handleChange}
           name="username"
           value={formValues.username}
           type="text"
-          placeholder="username"
           required
           /></label>
-          <label>Comment
-          <textarea className='comment-input input'
+          <label className='form-label'>Comment:  
+          <textarea className='form-textarea input'
           onChange={handleChange}
           name="comment"
           value={formValues.comment}
-          placeholder="comment"
           required
           />
           </label>
-          <button type='submit' disabled={!formValues.comment}>Submit Comment</button>
+          <button className='form-button' type='submit' disabled={!formValues.comment}>Submit Comment</button>
         </form>
         </section>
 
