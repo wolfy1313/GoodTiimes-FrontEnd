@@ -28,10 +28,12 @@ console.log(user)
 
   return (
 
-    <div className={authenticated ? "loggedInHome" : "loggedOutHome"}>
+    <div className={authenticated ? "loggedInHome header" : "loggedOutHome header"}>
          
         <h1 className='page-title animate__animated animate__slideInRight'>Welcome To Your Next Good Time</h1>
-        {!authenticated ? <h2 className='homeh2'>Register and Login to create a party and make a comment!</h2> :  <h2>Welcome {user.username}!</h2>}
+        {!authenticated ? <h2 className='homeh2'>Register and Login to create a party and make a comment!</h2> :  
+        
+        <h2 className='welcome-user'>Welcome {user.username}!</h2>}
         <h2 className='homeh2'>Here's the list of upcoming parties.</h2>
       <div>
        

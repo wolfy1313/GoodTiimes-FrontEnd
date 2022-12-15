@@ -26,6 +26,13 @@ html {
   scroll-behavior: smooth;
 }
 
+.welcome-user{
+
+}
+
+.header{
+
+}
 .home-subtitle{
   text-align: center;
 }
@@ -37,14 +44,21 @@ html {
 input[type=text]
 
 .name, .homeh2, .pageTitle{
-  font-variant: light;
+  font-variant: thin;
+  font-weight: 1500;
 }
 
 .image{
   height: 40vh;
   width: 45vw;
 }
-
+.page-title, .header{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding-bottom: 10vh;
+}
 .input-wrapper{
 
 }
