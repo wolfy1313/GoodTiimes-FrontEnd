@@ -28,7 +28,7 @@ const UpdateComment = ({user}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let updatedComment = {...formDetails}
-    await Client.put(`${BASE_URL}api/comment/update/${comment_id}`, updatedComment)
+    await Client.put(`${BASE_URL}/api/comment/update/${comment_id}`, updatedComment)
     .then((res) => {
       setFormDetails(initialFormValues)
       navigate(`/parties/${user.id}/${party_id}`)
