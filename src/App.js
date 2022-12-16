@@ -10,7 +10,6 @@ import { CheckSession } from './services/Auth'
 import CommentForm from './components/CommentForm';
 import NewParty from './components/NewParty';
 import UpdateComment from './components/UpdateComment';
-import UserHome from './components/UserHome';
 
 
 function App() {
